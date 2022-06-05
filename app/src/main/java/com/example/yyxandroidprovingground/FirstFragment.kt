@@ -10,6 +10,7 @@ import android.widget.TextView
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import com.example.yyxandroidprovingground.databinding.FragmentFirstBinding
+import kotlinx.coroutines.*
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
@@ -48,7 +49,12 @@ class FirstFragment : Fragment() {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
 //        firstViewModel.practiseCoroutine()
-            firstViewModel.job
+//            firstViewModel.job
+        GlobalScope.launch(Dispatchers.Main) {
+            firstViewModel.practiseCoroutine3()
+            println("yyxxxx 45678")
+        }
+
     }
 
     override fun onDestroyView() {
